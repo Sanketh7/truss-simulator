@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Truss Simulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css"> 
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <canvas id="canvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+        </div>
+        <div class="grid-item">
+            <h2>Joints</h2>
+            <div id="data-entry-joints"></div>
+            <button type="button" onclick="addJointEntry()">Add Joint</button>
+            
+            <h2>Members</h2>
+            <div id="data-entry-members"></div>
+            <button type="button" onclick="addMemberEntry()">Add Member</button>
+    
+            <h2>Load Forces</h2>
+            <div id="data-entry-loads"></div>
+            <button type="button" onclick="addLoadEntry()">Add Load Force</button>
+        
+            <h2>Reaction Forces</h2>
+            <div id="data-entry-reactions"></div>
+            <button type="button" onclick="addReactionEntry()">Add Reaction Force</button>
+    
+            <br><br><br>
+    
+            <button type="button" onclick="enterData()">Update</button>
+
+            <br><br><br>
+
+            <button type="button" onclick="exportData()">Export Data</button>
+            <br>
+            <button type="button" onclick="takeInData()">Import Data</button>
+        </div>
+        <div class="grid-item" id="resultBox"></div>
+    </div>
+    
+
+    <script src="globals.js"></script>
+    <script src="data-entry.js"></script>
+    <script src="rref.js"></script>
+    <script src="physics.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
