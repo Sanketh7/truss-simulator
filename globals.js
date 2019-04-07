@@ -4,3 +4,4 @@ let allSticks = [];
 
 let allExForces = [];
 
+let ZOOM = 1;

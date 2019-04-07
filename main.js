@@ -1,4 +1,5 @@
 let canvas = document.getElementById("canvas");
+canvas.style.border = "none";
 let ctx = canvas.getContext("2d");
 
 ctx.translate(0, 500);
@@ -7,7 +8,7 @@ ctx.rotate(-Math.PI/2);
 
 function printValueInfo(varName, value) {
     let pTag = document.createElement("p");
-    let text = document.createTextNode(varName + " = " + value);
+    let text = document.createTextNode(varName + " = " + value.toFixed(5));
 
     pTag.appendChild(text);
     document.getElementById("resultBox").appendChild(pTag);
@@ -64,6 +65,10 @@ function mainLoop() {
 
     for (let i = 0; i < allJoints.length; i++) {
         allJoints[i].draw(ctx);
+        /*
+        for (let j = 0; j < allJoints[i].exForces.length; j++) {
+            allJoints[i].exForces[j].draw(ctx, allJoints[i].pos);
+        }*/
     }
 
     for (let i = 0; i < allSticks.length; i++) {

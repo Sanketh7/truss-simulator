@@ -15,18 +15,20 @@ class Vector {
         return Math.atan2(this.y, this.x);
     }
 
-    draw(ctx) {
+    /*
+    draw(ctx, start) {
 
-        let start = {"x": this.x - this.magnitude, "y": this.y - this.magnitude};
+        //let start = {"x": this.x - this.magnitude, "y": this.y - this.magnitude};
 
         ctx.fillStyle = "#00FF00";
         ctx.beginPath();
-        ctx.moveTo(start.y, start.x);  // flip x and y while drawing to draw in cartesian
-        ctx.lineTo(this.y, this.x);
+        ctx.moveTo(start.y*ZOOM, start.x*ZOOM);  // flip x and y while drawing to draw in cartesian
+        ctx.lineTo((start.y+this.y)*ZOOM, (start.x+this.x)*ZOOM);
         ctx.stroke();
 
         this.drawArrowhead(ctx, start, this, 10);
     }
+    */
 
     drawArrowhead(context, from, to, radius) {
         let x_center = to.x;
@@ -118,7 +120,7 @@ class Joint {
     draw(ctx) {
         ctx.fillStyle = "#0000FF";
         ctx.beginPath();
-        ctx.arc(this.pos.y, this.pos.x, 10, 0, 2 * Math.PI);
+        ctx.arc(this.pos.y*ZOOM, this.pos.x*ZOOM, 10, 0, 2 * Math.PI);
         ctx.fill();
     }
 
@@ -209,8 +211,8 @@ class Stick {
     draw(ctx) {
         ctx.fillStyle = "#FF0000";
         ctx.beginPath();
-        ctx.moveTo(this.p1.y, this.p1.x);  // flip x and y while drawing to draw in cartesian
-        ctx.lineTo(this.p2.y, this.p2.x);
+        ctx.moveTo(this.p1.y*ZOOM, this.p1.x*ZOOM);  // flip x and y while drawing to draw in cartesian
+        ctx.lineTo(this.p2.y*ZOOM, this.p2.x*ZOOM);
         ctx.stroke();
     }
 
@@ -271,4 +273,12 @@ function formBigMatrix(rows, varNames) {
         }
     }
     return bigBoi;
+}
+
+function drawExternalVector(ctx, start, vector) {
+    ctx.fillStyle = "#00FF00";
+    ctx.beginPath();
+    ctx.moveTo(start.y*ZOOM, start.x*ZOOM);  // flip x and y while drawing to draw in cartesian
+    ctx.lineTo((start.y+vector.y)*ZOOM, (start.x+vector.x)*ZOOM);
+    ctx.stroke();
 }
