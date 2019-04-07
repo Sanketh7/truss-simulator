@@ -1,3 +1,29 @@
+function updateZoom() {
+    let zoomVal = document.getElementById("zoom").value;
+    if (!zoomVal) zoomVal = 1;
+    ZOOM = zoomVal;
+}
+
+function deleteJointEntry() {
+    let formDiv = document.getElementById("data-entry-joints");
+    formDiv.removeChild(formDiv.childNodes[formDiv.childNodes.length-1]);   
+}
+
+function deleteMemberEntry() {
+    let formDiv = document.getElementById("data-entry-members");
+    formDiv.removeChild(formDiv.childNodes[formDiv.childNodes.length-1]);   
+}
+
+function deleteLoadEntry() {
+    let formDiv = document.getElementById("data-entry-loads");
+    formDiv.removeChild(formDiv.childNodes[formDiv.childNodes.length-1]);   
+}
+
+function deleteReactionEntry() {
+    let formDiv = document.getElementById("data-entry-reactions");
+    formDiv.removeChild(formDiv.childNodes[formDiv.childNodes.length-1]);   
+}
+
 function addJointEntry(name, x, y) {
     let formDiv = document.getElementById("data-entry-joints");
     
@@ -99,14 +125,14 @@ function addLoadEntry(j, x, y) {
     xValRow.className = "x-val";
     xValRow.size = "5";
     xValRow.setAttribute("placeholder", "x");
-    if (x) xValRow.value = x;
+    if (x || x == 0) xValRow.value = x;
 
     let yValRow = document.createElement("INPUT");
     yValRow.type = "text";
     yValRow.className = "y-val";
     yValRow.size = "5";
     yValRow.setAttribute("placeholder", "y");
-    if (y) yValRow.value = y;
+    if (y || y == 0) yValRow.value = y;
 
     rowDiv.appendChild(joint);
     rowDiv.appendChild(xValRow);
@@ -158,6 +184,8 @@ function addReactionEntry(j, x, y) {
 }
 
 function enterData() {
+    updateZoom();
+
     allJoints = [];
 
     let jointsDiv = document.getElementById("data-entry-joints");
@@ -287,8 +315,8 @@ function exportData() {
 
         for (let i = 0; i < loadsDiv.children.length; i++) { // index of row div
             let joint = loadsDiv.children[i].children[0].value;
-            let x = parseInt(loadsDiv.children[i].children[1].value);
-            let y = parseInt(loadsDiv.children[i].children[2].value);
+            let x = loadsDiv.children[i].children[1].value;
+            let y = loadsDiv.children[i].children[2].value;
 
             data.loads.push({"joint": joint, "x": x, "y": y});
         }
