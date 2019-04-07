@@ -8,7 +8,7 @@ ctx.rotate(-Math.PI/2);
 
 function printValueInfo(varName, value) {
     let pTag = document.createElement("p");
-    let text = document.createTextNode(varName + " = " + value);
+    let text = document.createTextNode(varName + " = " + value.toFixed(5));
 
     pTag.appendChild(text);
     document.getElementById("resultBox").appendChild(pTag);
