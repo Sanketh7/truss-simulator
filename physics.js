@@ -134,7 +134,7 @@ class Joint {
                     let mult = (this.exForces[i].y == "-y") ? -1 : 1;
                     vertRow[this.exForces[i].name] = 1 * mult;
                 } else {
-                    vertRow["result"] = this.exForces[i].y;
+                    vertRow["result"] = -this.exForces[i].y;
                 }
             } 
             else if (this.exForces[i].y == 0) { // horizontal
@@ -142,7 +142,7 @@ class Joint {
                     let mult = (this.exForces[i].x == "-x") ? -1 : 1;
                     horizRow[this.exForces[i].name] = 1 * mult;
                 } else {
-                    horizRow["result"] = this.exForces[i].x;
+                    horizRow["result"] = -this.exForces[i].x;
                 }
             }
         }
