@@ -7,6 +7,8 @@ ctx.rotate(-Math.PI/2);
 
 
 function printValueInfo(varName, value) {
+    finalValues[varName] = value;
+
     let pTag = document.createElement("p");
     let text = document.createTextNode(varName + " = " + value.toFixed(5));
 
@@ -49,9 +51,26 @@ function calculate() {
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
+    let header = document.createElement("h2");
+    let textNode = document.createTextNode("Results");
+
+    let subtitle = document.createElement("p");
+
+    header.appendChild(textNode);
+
+    document.getElementById("resultBox").appendChild(header);
+    if (allSticks.length !== 2 * allJoints.length - reactionForceCounter) {
+        let subtitleText = document.createTextNode("This truss is not statically determinate.")
+        subtitle.appendChild(subtitleText);
+        document.getElementById("resultBox").appendChild(subtitle);
+    }
+
+    reactionForceCounter = 0;
+
     for (let i = 0; i < varNames.length; i++) {
         printValueInfo(varNames[i], rrefMatrix[i][rrefMatrix[0].length-1]);
     }
+
 }
 
 

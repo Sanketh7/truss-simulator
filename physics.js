@@ -177,6 +177,10 @@ class Joint {
     }
 }
 
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
 class Stick {
     constructor (x1, y1, x2, y2, joints) {
         this.p1 = new Vector(x1, y1);
@@ -209,7 +213,26 @@ class Stick {
     }
 
     draw(ctx) {
-        ctx.fillStyle = "#FF0000";
+        let value = finalValues["F_"+this.joints+",F_"+this.joints[1]+this.joints[0]];
+        let percent;
+        if (value > 0) {
+            percent = Math.abs(value / tensileStrength);
+        } else if (value < 0) {
+            percent = Math.abs(value / compressiveStrength);
+        } else {
+            percent = 0;
+        }
+        let color;
+        if (percent > 1) {
+            percent = 1;
+            color = "#00FFFF";
+        } else {
+            color = rgbToHex(255*percent, 255*(1-percent), 0);
+        }
+
+        console.log(color);
+
+        ctx.strokeStyle = color;
         ctx.beginPath();
         ctx.moveTo(this.p1.y*ZOOM, this.p1.x*ZOOM);  // flip x and y while drawing to draw in cartesian
         ctx.lineTo(this.p2.y*ZOOM, this.p2.x*ZOOM);

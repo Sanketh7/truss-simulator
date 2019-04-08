@@ -193,6 +193,12 @@ function enterData() {
     let loadsDiv = document.getElementById("data-entry-loads");
     let reactionsDiv = document.getElementById("data-entry-reactions");
 
+    let tensileStrengthInput = document.getElementById("tensile");
+    let compressiveStrengthInput = document.getElementById("compressive");
+
+    tensileStrength = tensileStrengthInput.value;
+    compressiveStrength = compressiveStrengthInput.value;
+
     if (jointsDiv.hasChildNodes() && membersDiv.hasChildNodes()
     && loadsDiv.hasChildNodes() && reactionsDiv.hasChildNodes) {
         // console.log(jointsDiv.children[0].children[0].value);
@@ -279,6 +285,9 @@ function enterData() {
                 }
             }
             if(!jointFound) alert("Invalid joint.");
+            else {
+                reactionForceCounter += 1;
+            }
         }
 
         calculate();
@@ -329,6 +338,9 @@ function exportData() {
             data.reactions.push({"joint": joint, "x": x, "y": y});
         }
 
+        data["tensileStrength"] = document.getElementById("tensile").value;
+        data["compressiveStrength"] = document.getElementById("compressive").value;
+
         console.log(JSON.stringify(data));
     } else {
         alert("Not enough information provided.");
@@ -353,4 +365,9 @@ function takeInData() {
     for (let i = 0; i < data.reactions.length; i++) {
         addReactionEntry(data.reactions[i].joint, data.reactions[i].x, data.reactions[i].y);
     }
+
+    tensileStrength = data.tensileStrength;
+    document.getElementById("tensile").value = tensileStrength;
+    compressiveStrength = data.compressiveStrength;
+    document.getElementById("compressive").value = compressiveStrength;
 }
