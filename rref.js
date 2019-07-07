@@ -1,3 +1,4 @@
+// from: https://github.com/substack/rref/blob/master/index.js
 function rref(A) {
     var rows = A.length;
     var columns = A[0].length;
