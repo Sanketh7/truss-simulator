@@ -8,6 +8,7 @@ The project can be viewed at: https://sanketh7.github.io/truss-simulator/
 
 ## Features
 
+- solves trusses (all forces) using matrices
 - draws trusses based on Cartesian points entered
 - allows user to set tensile and compressive strength
 - allows user to specify the load and reaction forces
