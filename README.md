@@ -16,7 +16,17 @@ The project can be viewed at: https://sanketh7.github.io/truss-simulator/
 
 
 
-### Sample data:
+## Technologies Used
+
+| Name       | Description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| Javascript | A web scripting language. The project is written in this (calculations, generate graphics, handle input) |
+| HTML       | A web markdown language. Used as the backbones of the project and the HTML canvas allows for graphics to be displayed. |
+| CSS        | A web style sheet language. Used to create a layout for the HTML elements. |
+
+
+
+## Sample Data:
 
 1. Click **"Import Data"** at the bottom
 
