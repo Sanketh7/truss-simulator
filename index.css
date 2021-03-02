@@ -1,22 +1,3 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr;
-    grid-template-areas: "zoom entry resultBox" "canvas entry resultBox" "canvas entry resultBox";
-}
-
-#zoom-grid {
-    grid-area: zoom;
-}
-
 #canvas {
-    grid-area: canvas;
-}
-
-#entry-grid {
-    grid-area: entry;
-}
-
-#resultBox {
-    grid-area: resultBox;
+    border: 1px solid #000000 !important;
 }

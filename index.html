@@ -6,58 +6,71 @@
     <title>Truss Simulator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">	
+    <script src="https://kit.fontawesome.com/7f23f9c805.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="index.css"> 
 </head>
 <body>
-    <div class="grid-container">
-        <div class="grid-item" id="zoom-grid">
-            <h3>Zoom</h3>
-            <input type="text" id="zoom" size="5">
-            <button type="button" onclick="updateZoom()">Update Zoom</button>
+    <div class="columns">
+        <div class="column">
+            <button class="button is-success is-rounded">
+                <span>
+                    <i class="fas fa-search-plus"></i>
+                </span>
+            </button>
+            <div id="zoom-text"><b>Zoom:</b> 100</div>
+            <button class="button is-danger is-rounded">
+                <span>
+                    <i class="fas fa-search-minus"></i>
+                </span>
+            </button>
+            <div>
+                <canvas id="canvas" width="500" height="500"></canvas>
+            </div>
         </div>
-        <div class="grid-item" id="canvas-grid">
-            <canvas id="canvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+        <div class="column">
+            <div class="block">
+                <div class="field">
+                    <label class="label">Tensile Strength</label>
+                    <div class="control">
+                        <input class="input" type="text">
+                    </div>
+                    <p class="help">How much can the material be stretched?</p>
+                </div>
+                <div class="field">
+                    <label class="label">Compressive Strength</label>
+                    <div class="control">
+                        <input class="input" type="text">
+                        <p class="help">How much can the material be compressed?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <h1 class="title">Joints</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>x</th>
+                            <th>y</th>
+                        </tr>
+                    </thead>
+                </table>
+                <button class="button is-success">Add Joint</button>
+            </div>
+            <div class="block">
+                <h1 class="title">Members</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Joint 1</th>
+                            <th>Joint 2</th>
+                        <tr>
+                    </thead>
+                </table>
+                <button class="button is-success">Add Member</button>
+            </div>
         </div>
-        <div class="grid-item" id="entry-grid">
-            <p>Green => Red, Cyan if member is permanently deformed.</p>
-            <p>Tensile Strength</p>
-            <input type="text" id="tensile" size="5">
-            <p>Compressive Strength</p>
-            <input type="text" id="compressive" size="5">
-
-            <h2>Joints</h2>
-            <div id="data-entry-joints"></div>
-            <button type="button" onclick="addJointEntry()">+</button>
-            <button type="button" onclick="deleteJointEntry()">-</button>
-            
-            <h2>Members</h2>
-            <div id="data-entry-members"></div>
-            <button type="button" onclick="addMemberEntry()">+</button>
-            <button type="button" onclick="deleteMemberEntry()">-</button>
-
-            <h2>Load Forces</h2>
-            <p>Note: One component must be 0.</p>
-            <div id="data-entry-loads"></div>
-            <button type="button" onclick="addLoadEntry()">+</button>
-            <button type="button" onclick="deleteLoadEntry()">-</button>
-
-            <h2>Reaction Forces</h2>
-            <p>Note: One component must be 0. The other must be +x, -x, +y, or -y.</p>
-            <div id="data-entry-reactions"></div>
-            <button type="button" onclick="addReactionEntry()">+</button>
-            <button type="button" onclick="deleteReactionEntry()">-</button>
-
-            <br><br><br>
-    
-            <button type="button" onclick="enterData()">Update</button>
-
-            <br><br><br>
-
-            <button type="button" onclick="exportData()">Export Data</button>
-            <br>
-            <button type="button" onclick="takeInData()">Import Data</button>
-        </div>
-        <div class="grid-item" id="resultBox"></div>
     </div>
     <script src="globals.js"></script>
     <script src="data-entry.js"></script>
