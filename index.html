@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="column">
-            <div class="block">
+            <div class="block input-area">
                 <div class="field">
                     <label class="label">Tensile Strength</label>
                     <div class="control">
@@ -45,30 +45,105 @@
                     </div>
                 </div>
             </div>
-            <div class="block">
+            <div class="block input-area">
                 <h1 class="title">Joints</h1>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>x</th>
-                            <th>y</th>
+                            <th class="center-text">Name</th>
+                            <th class="center-text">x</th>
+                            <th class="center-text">y</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="input" type="text"></td>
+                            <td><input class="input" type="text"></td>
+                            <td><input class="input" type="text"></td>
+                        </tr>
+                    </tbody>
                 </table>
-                <button class="button is-success">Add Joint</button>
+                <button class="button is-success">
+                    <span class="icon">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>Add Joint</span>
+                </button>
             </div>
-            <div class="block">
+            <div class="block input-area">
                 <h1 class="title">Members</h1>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Joint 1</th>
-                            <th>Joint 2</th>
+                            <th class="center-text">Joint 1</th>
+                            <th class="center-text">Joint 2</th>
                         <tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="input" type="text"></td>
+                            <td><input class="input" type="text"></td>
+                        </tr>
+                    </tbody>
                 </table>
-                <button class="button is-success">Add Member</button>
+                <button class="button is-success">
+                    <span class="icon">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>Add Member</span>
+                </button>
+            </div>
+        </div>
+        <div class="column">
+            <div class="block input-area">
+                <h1 class="title">Load Forces</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="center-text">Joint</th>
+                            <th class="center-text">x</th>
+                            <th class="center-text">y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="input" type="text"></td>
+                            <td><input class="input" type="text"></td>
+                            <td><input class="input" type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="button is-success">
+                    <span class="icon">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>Add Force</span>
+                </button>
+            </div>
+            <div class="block input-area">
+                <h1 class="title">Reaction Forces</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="center-text">Joint</th>
+                            <th class="center-text">x</th>
+                            <th class="center-text">y</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="input" type="text"></td>
+                            <td><input class="input" type="text"></td>
+                            <td><input class="input" type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="button is-success">
+                    <span class="icon">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>Add Force</span>
+                </button>
             </div>
         </div>
     </div>
